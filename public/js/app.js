@@ -20333,7 +20333,10 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/" } },
+                      {
+                        staticClass: "nav-link",
+                        attrs: { exact: "", to: { name: "posts.index" } }
+                      },
                       [_vm._v("Posts")]
                     )
                   ],
@@ -20348,7 +20351,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: { to: "/posts/create" }
+                        attrs: { exact: "", to: { name: "posts.create" } }
                       },
                       [_vm._v("Add new post")]
                     )
@@ -35832,12 +35835,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
-  route: [{
+  routes: [{
     path: '/',
-    component: _components_Posts_Index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _components_Posts_Index_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    name: 'posts.index'
   }, {
-    path: '/posts/create',
-    component: _components_Posts_Create_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    path: '/create',
+    component: _components_Posts_Create_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    name: 'posts.create'
   }]
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));

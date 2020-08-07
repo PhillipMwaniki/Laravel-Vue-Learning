@@ -8,7 +8,7 @@
 
         <title>Laravel</title>
         <style>
-            .active-menu {
+            .router-link-active {
                 font-weight: bold;
                 text-decoration: underline;
             }
