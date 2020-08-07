@@ -11,7 +11,7 @@ import PostCreate from "./components/Posts/Create.vue";
 
 const router = new VueRouter({
     mode: 'history',
-    route: [
+    routes: [
         {
             path: '/',
             component: PostIndex
