@@ -2,14 +2,14 @@ require("./bootstrap");
 
 import Vue from "vue";
 
-import routes from './routes';
-
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
+import VueSweetalert2 from "vue-sweetalert2";
+Vue.use(VueSweetalert2);
+
 import App from "./components/App.vue";
-import PostIndex from "./components/Posts/Index.vue";
-import PostCreate from "./components/Posts/Create.vue";
+import routes from './routes';
 
 
 Vue.component('pagination', require('laravel-vue-pagination'));

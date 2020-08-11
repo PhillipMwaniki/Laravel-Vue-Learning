@@ -54,27 +54,25 @@ export default {
         axios.get('/api/categories').then(response => {
             this.categories = response.data;
         });
+
+        axios.get('/api/posts/' + this.$route.params.id).then(response => {
+            this.fields = response.data.data;
+        });
     },
     methods: {
         select_file(event) {
             this.fields.thumbnail = event.target.files[0];
-            console.log(this.fields.thumbnail);
         },
         submit_form() {
             this.form_submitting = true;
 
-            let fields = new FormData();
-            for (let key in this.fields) {
-                fields.append(key, this.fields[key]);
-            }
-
-            console.log(fields);
-
-            axios.post('/api/posts', fields).then(response => {
+            axios.put('/api/posts/' + this.$route.params.id, this.fields).then(response => {
                 this.form_submitting = true;
+                this.$swal('Post updated successfully');
                 this.$router.push('/');
             }).catch(error => {
                 this.form_submitting = true;
+                this.$swal({icon: 'error', title: 'Something went wrong'});
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
                 }
